@@ -29,15 +29,22 @@ function createDaysOfTheWeek() {
 
       dezDaysListItem.appendChild(dayDezListItem);  
 
-      const holidayDay = ['24', '25', '31'];
+      const holidayDay = ['24', '25', '26', '31'];
       for(let index = 0; index < holidayDay.length; index++){
-          if (dayDezListItem.innerText.includes(holidayDay[index])){
+          if (dayDezListItem.innerText.includes(holidayDay[index])) {
             dayDezListItem.className += ' holiday';
           }
       }
 
+      const fridayDay = ['4', '11', '18', '25'];
+      for(let index = 0; index < fridayDay.length; index++){
+          if (dayDezListItem.innerText.includes(fridayDay[index])) {
+            dayDezListItem.className += ' friday';
+          }
+      }
+
     };
-    
+
   };
 
   createDaysDez(); 
