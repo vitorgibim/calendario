@@ -25,9 +25,16 @@ function createDaysOfTheWeek() {
       const days = dezDaysList[index];
       const dayDezListItem = document.createElement('li');
       dayDezListItem.innerHTML = days;
+      dayDezListItem.className = 'days';
 
-      dezDaysListItem.appendChild(dayDezListItem);      
+      dezDaysListItem.appendChild(dayDezListItem);  
+
+      if (dayDezListItem.innerText.includes('24')){
+        dayDezListItem.className += ' feriado';
+      }
+
     };
   };
+  createDaysDez(); 
 
-  createDaysDez();
+      
