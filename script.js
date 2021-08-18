@@ -29,12 +29,18 @@ function createDaysOfTheWeek() {
 
       dezDaysListItem.appendChild(dayDezListItem);  
 
-      if (dayDezListItem.innerText.includes('24')){
-        dayDezListItem.className += ' feriado';
+      const holidayDay = ['24', '25', '31'];
+      for(let index = 0; index < holidayDay.length; index++){
+          if (dayDezListItem.innerText.includes(holidayDay[index])){
+            dayDezListItem.className += ' holiday';
+          }
       }
 
     };
+    
   };
+
   createDaysDez(); 
+ 
 
       
