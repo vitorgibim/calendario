@@ -17,29 +17,29 @@ function createDaysOfTheWeek() {
 
 
 
-  function createDaysDez() {
-    const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-    const dezDaysListItem = document.querySelector('#days');
+  function createDaysDec() {
+    const decDays = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+    const decDaysListItems = document.querySelector('#days');
+    
+    for (let index = 0; index < decDays.length; index++) {
+      const days = decDays[index];
+      const dayDecListItem = document.createElement('li');
+      dayDecListItem.innerHTML = days;
+      dayDecListItem.className = 'days';
 
-    for (let index = 0; index < dezDaysList.length; index++) {
-      const days = dezDaysList[index];
-      const dayDezListItem = document.createElement('li');
-      dayDezListItem.innerHTML = days;
-      dayDezListItem.className = 'days';
-
-      dezDaysListItem.appendChild(dayDezListItem);  
+      decDaysListItems.appendChild(dayDecListItem);  
 
       const holidayDay = ['24', '25', '26', '31'];
       for(let index = 0; index < holidayDay.length; index++){
-          if (dayDezListItem.innerText.includes(holidayDay[index])) {
-            dayDezListItem.className += ' holiday';
-          }
+        if (dayDecListItem.innerText == (holidayDay[index])) {
+          dayDecListItem.className += ' holiday';
+        }
       }
 
       const fridayDay = ['4', '11', '18', '25'];
       for(let index = 0; index < fridayDay.length; index++){
-          if (dayDezListItem.innerText.includes(fridayDay[index])) {
-            dayDezListItem.className += ' friday';
+          if (dayDecListItem.innerText == (fridayDay[index])) {
+            dayDecListItem.className += ' friday';
           }
       }
 
@@ -47,7 +47,9 @@ function createDaysOfTheWeek() {
 
   };
 
-  createDaysDez(); 
+  createDaysDec(); 
+
+
  
 
       
