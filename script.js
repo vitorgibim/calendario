@@ -36,9 +36,9 @@ function createDaysOfTheWeek() {
         }
       }
 
-      const fridayDay = ['4', '11', '18', '25'];
-      for(let index = 0; index < fridayDay.length; index++){
-          if (dayDecListItem.innerText == (fridayDay[index])) {
+      const fridayDays = ['4', '11', '18', '25'];
+      for(let index = 0; index < fridayDays.length; index++){
+          if (dayDecListItem.innerText == (fridayDays[index])) {
             dayDecListItem.className += ' friday';
           }
       }
@@ -61,7 +61,23 @@ function createDaysOfTheWeek() {
 
   createHolidayButton();
 
+  function clickOnHolidayButton(){
+    document.getElementById("btn-holiday").addEventListener("click", function() {
+      var elements = document.getElementsByClassName("holiday")
+      for (var i = 0; i < elements.length; i++) {
+          elements[i].style.background= "red";
+      }
+    });
 
- 
+    document.getElementById("btn-holiday").addEventListener("dblclick", function() {
+      var elements = document.getElementsByClassName("holiday")
+      for (var i = 0; i < elements.length; i++) {
+          elements[i].style.background= "blue";
+      }
+    });
+
+  }
+
+clickOnHolidayButton();
 
       
