@@ -69,7 +69,7 @@ function createDaysOfTheWeek() {
       }
     });
 
-    document.getElementById("btn-holiday").addEventListener("dblclick", function() {
+    document.getElementById("btn-holiday").addEventListener("dblclick", function() { // arrumar
       var elements = document.getElementsByClassName("holiday")
       for (var i = 0; i < elements.length; i++) {
           elements[i].style.background= "blue";
