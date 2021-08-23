@@ -11,72 +11,85 @@ function createDaysOfTheWeek() {
     };
   };
   
-  createDaysOfTheWeek();
-  
-  // Escreva seu código abaixo.
+createDaysOfTheWeek();
+
+// Escreva seu código abaixo.
 
 
 
-  function createDaysDec() {
-    const decDays = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-    const decDaysListItems = document.querySelector('#days');
+function createDaysDec() {
+  const decDays = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+  const decDaysListItems = document.querySelector('#days');
 
-    for (let index = 0; index < decDays.length; index++) {
-      const days = decDays[index];
-      const dayDecListItem = document.createElement('li');
-      dayDecListItem.innerHTML = days;
-      dayDecListItem.className = 'days';
+  for (let index = 0; index < decDays.length; index++) {
+    const days = decDays[index];
+    const dayDecListItem = document.createElement('li');
+    dayDecListItem.innerHTML = days;
+    dayDecListItem.className = 'days';
 
-      decDaysListItems.appendChild(dayDecListItem);  
+    decDaysListItems.appendChild(dayDecListItem);  
 
-      const holidayDays = ['24', '25', '26', '31'];
-      for(let index = 0; index < holidayDays.length; index++){
-        if (dayDecListItem.innerText == (holidayDays[index])) {
-          dayDecListItem.className += ' holiday';
+    const holidayDays = ['24', '25', '26', '31'];
+    for(let index = 0; index < holidayDays.length; index++){
+      if (dayDecListItem.innerText == (holidayDays[index])) {
+        dayDecListItem.classList.add('holiday');
+      }
+    }
+
+    const fridayDays = ['4', '11', '18', '25'];
+    for(let index = 0; index < fridayDays.length; index++){
+        if (dayDecListItem.innerText == (fridayDays[index])) {
+          dayDecListItem.classList.add('friday');
         }
-      }
-
-      const fridayDays = ['4', '11', '18', '25'];
-      for(let index = 0; index < fridayDays.length; index++){
-          if (dayDecListItem.innerText == (fridayDays[index])) {
-            dayDecListItem.className += ' friday';
-          }
-      }
-
-    };
+    }
 
   };
 
-  createDaysDec(); 
+};
 
-  function createHolidayButton(holidayDays){
-    const holidayButton = document.querySelector('.buttons-container');
+createDaysDec(); 
 
-    const holidayButtonItem = document.createElement('button');
-    holidayButtonItem.innerHTML = 'Feriados';
-    holidayButton.id = 'btn-holiday';
+function createHolidayButton(holidayDays){
+  const holidayButton = document.querySelector('.buttons-container');
 
-    holidayButton.appendChild(holidayButtonItem);
-  }
+  const holidayButtonItem = document.createElement('button');
+  holidayButtonItem.innerHTML = 'Feriados';
+  holidayButton.id = 'btn-holiday';
 
-  createHolidayButton();
+  holidayButton.appendChild(holidayButtonItem);
+}
 
-  function clickOnHolidayButton(){
-    document.getElementById("btn-holiday").addEventListener("click", function() {
-      var elements = document.getElementsByClassName("holiday")
-      for (var i = 0; i < elements.length; i++) {
-          elements[i].style.background= "red";
+createHolidayButton();
+
+function changeColorHoliday() {
+
+}
+
+
+function clickOnHolidayButton(){
+  document.getElementById("btn-holiday").addEventListener("click", function() {
+    var elements = document.getElementsByClassName("holiday");
+    for (var i = 0; i < elements.length; i++) {
+      if (elements[i].style.background === document.body.style.background){
+        elements[i].style.background = "white";
+      } else {
+        elements[i].style.background = document.body.style.background;
       }
-    });
+      
+    }
 
-    document.getElementById("btn-holiday").addEventListener("dblclick", function() { // arrumar
-      var elements = document.getElementsByClassName("holiday")
-      for (var i = 0; i < elements.length; i++) {
-          elements[i].style.background= "blue";
-      }
-    });
+  });
 
-  }
+}
+
+  //document.getElementById("btn-holiday").addEventListener("dblclick", function() { // arrumar
+    //var elements = document.getElementsByClassName("holiday")
+//     for (var i = 0; i < elements.length; i++) {
+//         elements[i].style.background-color= "rgb(238,238,238)";
+//     }
+//   });
+
+// }
 
 clickOnHolidayButton();
 
